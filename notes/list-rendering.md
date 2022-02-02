@@ -1,0 +1,12 @@
+# about list rendering we should know
+- About the key
+    - Keys help React identify which items have changed, are added, or are removed
+    - Keys used within arrays should be unique among their siblings. However they don’t need to be globally unique
+- DO NOT use index as key unless:
+    - The item in the list do not have a unique id
+    - The list is a static list and will not change
+    - The list will never be ordered or filtered
+- What will happe when we use index for key
+    - Situation: append new element in front of the array
+    - Result: List will update but the values are error
+    - [More detail see this vedio](https://youtu.be/xlPxnc5uUPQ?t=240)
