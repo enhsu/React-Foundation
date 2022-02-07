@@ -20,8 +20,7 @@ class Counter extends Component {
     render() {
         const args = {
             count: this.state.count,
-            incrementCount: this.incrementCount,
-            sayHi: () => console.log('hi')
+            incrementCount: this.incrementCount
         }
         return (
             <div>

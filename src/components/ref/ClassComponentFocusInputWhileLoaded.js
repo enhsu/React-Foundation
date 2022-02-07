@@ -19,7 +19,7 @@ class FocusInput extends Component {
     render() { 
         return (
             <div>
-                <h3>Focus input while page loaded</h3>
+                <h3>Class Component - Focus input while page loaded</h3>
                 <input ref={this.inputRef} type="text" />
                 <button onClick={() => this.handleClick()}>Get input value</button>
             </div>

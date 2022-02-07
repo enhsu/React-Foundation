@@ -11,10 +11,11 @@ const Navbar = () => {
         <nav>
             <NavLink className={rootClassName} to="component-foundation">Component Foundation</NavLink>
             <NavLink to="lifecycle">Lifecycle</NavLink>
-            <NavLink to="pure-component">Pure Component</NavLink>
+            <NavLink to="improve-performance">Improve Performance</NavLink>
             <NavLink to="ref">Ref</NavLink>
-            <NavLink to="higher-order-component">Higher Order Component</NavLink>
-            <NavLink to="render-props">Render Props</NavLink>
+            <NavLink to="share-functionality">Share Functionality</NavLink>
+            <NavLink to="fetch-data">Fetch Data</NavLink>
+            <NavLink to="context">Context</NavLink>
         </nav>
     );
 }

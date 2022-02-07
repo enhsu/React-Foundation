@@ -3,7 +3,8 @@ import Lifecycle from "../../components/lifecycle/Lifecycle";
 const Updating = () => {
     return (
         <div>
-            <h3>Lifecycle result see console</h3>
+            <h3>Lifecycle: Updating</h3>
+            <p>result see console</p>
             <Lifecycle
                 name="A"
                 lifecycle="updating">

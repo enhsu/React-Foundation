@@ -19,6 +19,7 @@ class CallbackRef extends Component {
     render() { 
         return (
             <div>
+                <h3>Class component - callback ref</h3>
                 <input ref={this.setCbRef} type="text" />
                 <button onClick={() => this.handleClick()}>Click To Focus Input</button>
             </div>

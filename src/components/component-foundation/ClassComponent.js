@@ -10,38 +10,69 @@ class App extends Component {
     state = {
         counter: 0,
         addNumber: 3,
-        isLogin: true
+        isLogin: true,
+        username: {
+            firstname: '',
+            lastname: ''
+        },
+        items: []
     }
 
-    // state-part
+    // primitive-value-part
     handlCounterByBindThis() {
-        this.setState(prevState => {
-            return {
-                counter: prevState.counter + 1
-            }
-        })
+        this.setState(prevState => ({
+            counter: prevState.counter + 1
+        }))
     }
     handleCounterWithPublicClassFieldSyntax = () => {
-        this.setState({
-            counter: this.state.counter + 2
+        this.setState(prevState => {
+            return {
+                counter: prevState.counter + 2
+            }
         })
     }
     handleCounterWithArrowFunction(num) {
         // With arrow function can pass parameters to the function
-        this.setState({
-            counter: this.state.counter + num
+        this.setState(prevState => {
+            return {
+                counter: prevState.counter + num
+            }
         })
+    }
+    // object-part
+    handleUpdateUsername = (e) => {
+        this.setState(prevState => ({
+            username: {
+                ...prevState.username,
+                [e.target.getAttribute('data-name')]: e.target.value
+            }
+        }))
+    }
+    // array-part
+    handleAddItem = () => {
+        this.setState(prevState => ({
+            items: [
+                ...prevState.items,
+                {
+                    id: prevState.items.length,
+                    value: Math.floor(Math.random() * 10) + 1
+                }
+            ]
+        }))
     }
 
     // conditional-rendering-part
     switchLogin() {
-        this.setState({
-            isLogin: !this.state.isLogin
+        this.setState(prevState => {
+            return {
+                isLogin: !prevState.isLogin
+            }
         })
     }
 
     render() {
         const { name, greet } = this.props
+        const { counter, addNumber, isLogin, username, items } = this.state
         return (
             <div>
                 <div className="props-part">
@@ -50,11 +81,36 @@ class App extends Component {
                 </div>
                 <div className="state-part">
                     <h3>Handle state in class component</h3>
-                    <p>current count: {this.state.counter}</p>
-                    <button onClick={this.handlCounterByBindThis}>Click to add 1</button>
-                    <button onClick={this.handleCounterWithPublicClassFieldSyntax}>Click to add 2</button>
-                    <button onClick={() => this.handleCounterWithArrowFunction(this.state.addNumber)}>Click to add {this.state.addNumber}</button>
-                    <input type="number" value={this.state.addNumber} onChange={(e) => this.setState({ addNumber: Number(e.target.value) })}></input>
+                    <div className='primitive-value-part'>
+                        <h4>State with primitive value</h4>
+                        <p>current count: {counter}</p>
+                        <button onClick={this.handlCounterByBindThis}>Click to add 1</button>
+                        <button onClick={this.handleCounterWithPublicClassFieldSyntax}>Click to add 2</button>
+                        <button onClick={() => this.handleCounterWithArrowFunction(addNumber)}>Click to add {addNumber}</button>
+                        <input type="number" value={addNumber} onChange={(e) => this.setState({ addNumber: Number(e.target.value) })}></input>
+                    </div>
+                    <div className='object-part'>
+                        <h4>State with object</h4>
+                        <form>
+                            <label htmlFor="firstname">firstname: </label>
+                            <input id="firstname" type="text" data-name="firstname" value={username.firstname} onChange={(e) => this.handleUpdateUsername(e)} />
+                            <br />
+                            <label htmlFor="lastname">lastname: </label>
+                            <input id="lastname" type="text" data-name="lastname" value={username.lastname} onChange={(e) => this.handleUpdateUsername(e)} />
+                            <p>username object data: {JSON.stringify(username)}</p>
+                        </form>
+                    </div>
+                    <div className='array-part'>
+                        <h4>State with array</h4>
+                        <button onClick={() => this.handleAddItem()}>Add Random Number</button>
+                        <ul>
+                            {items.map(item => {
+                                return (
+                                    <li key={item.id}>{item.value}</li>
+                                )
+                            })}
+                        </ul>
+                    </div>
                 </div>
                 <div className="methods-as-props-part">
                     <h3>Passing method from parent component</h3>
@@ -65,7 +121,7 @@ class App extends Component {
                     <button onClick={() => this.switchLogin()}>Switch login</button>
                     <div className="way-1">
                         {
-                            this.state.isLogin ? (
+                            isLogin ? (
                                 <p>Hello member!</p>
                             ) : (
                                 <p>Hello guest!</p>
@@ -74,10 +130,10 @@ class App extends Component {
                     </div>
                     <div className="way-2">
                         {
-                            this.state.isLogin && <p>Hello member!</p>
+                            isLogin && <p>Hello member!</p>
                         }
                         {
-                            !this.state.isLogin && <p>Hello guest!</p>
+                            !isLogin && <p>Hello guest!</p>
                         }
                     </div>
                 </div>

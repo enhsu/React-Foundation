@@ -7,6 +7,7 @@ const Lifecycle = () => {
             <nav>
                 <NavLink to="mounting">Lifecycle: Mounting</NavLink>
                 <NavLink to="updating">Lifecycle: Updating</NavLink>
+                <NavLink to="class-vs-functional">Class Component VS Functional Component</NavLink>
             </nav>
             <Outlet />
         </div>
