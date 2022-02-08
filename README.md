@@ -110,7 +110,8 @@ react-app
         const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
         ```
     - [source code - useCallback in handle event methods, useMemo in variables](./src/pages/ImprovePerformance/UseCallbackAndUseMemo.js)
-
+- More
+    - [When to useMemo and useCallback](https://kentcdodds.com/blog/usememo-and-usecallback)
 ## Access DOM node directly within react - Refs
 - About Refs
     - class component: createRef()
