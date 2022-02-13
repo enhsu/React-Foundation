@@ -136,7 +136,7 @@ react-app
     - child component: return React.forwardRef(component)
     - [source code - parent component](./src/components/ref/ForwardRef.js)
     - [source code - child component](./src/components/ref/ForwardRefChild.js)
-- Demo: `Hook - useRef()` for variable in functional component
+- Demo: `Hook - useRef()`, mutable ref, for variable in functional component
     - [source code - useRef for variable](./src/components/ref/UseRefForVariable.js)
 
 ## Render children into a DOM node that exists outside the DOM hierarchy of the parent component - ReactDOM.createPortal
@@ -150,16 +150,16 @@ react-app
 - Higher Order Component
     - Lift business logic to parent component and pass props to children for display
     - Demo: Counter for `ClickCounter` and `HoverCounter`
-    - [source code - wrapper component](./src/components/higher-order-component/Counter.js)
-    - [source code - ui component](./src/components/higher-order-component/ClickCount.js)
+    - [source code - wrapper component](./src/components/share-functionality/higher-order-component/Counter.js)
+    - [source code - ui component](./src/components/share-functionality/higher-order-component/ClickCount.js)
     ![picture - higher order component counter demo](./src/assets/higher-order-component-counter-demo.png)
     ![picture - higher order component overview](./src/assets/higher-order-component-overview.png)
     
 - Render Props
     - The term `render prop` refers to a technique for `sharing code` between React components using `a prop whose value is a function`
     - Core: React can use a prop whose value is a function to control what is actual render by a component
-    - [source code - logic component](./src/components/render-props/Counter.js)
-    - [source code - ui component](./src/components/render-props/ClickCount.js)
+    - [source code - logic component](./src/components/share-functionality/render-props/Counter.js)
+    - [source code - ui component](./src/components/share-functionality/render-props/ClickCount.js)
     ![picture - render props overview](./src/assets/render-props-overview.png)
 
 - Custom Hook
